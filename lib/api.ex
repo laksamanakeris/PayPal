@@ -171,12 +171,13 @@ defmodule PayPal.API do
 
   @spec base_url :: String.t
   defp base_url do
+    IO.puts "=============================== #{Application.get_env(:pay_pal, :environment)}"
     case Application.get_env(:pay_pal, :environment) do
       :sandbox -> @base_url_sandbox
       :live -> @base_url_live
       _ ->
         require Logger
-        Logger.warn "[PayPal] No `env` found in config, use `sandbox` as default."
+        Logger.warn "[PayPal] No `environment` found in config, use `sandbox` as default."
         @base_url_sandbox
     end
   end

@@ -87,6 +87,6 @@ defmodule PayPal.Payments.Payouts do
   """
   @spec item_cancel(String.t) :: {atom, any}
   def item_cancel(payout_item_id) do
-    PayPal.API.post("payments/payouts-item/#{payout_item_id}/cancel")
+    PayPal.API.post("payments/payouts-item/#{payout_item_id}/cancel", %{})
   end
 end
